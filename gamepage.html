@@ -1,0 +1,203 @@
+<!doctype html>
+<head>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<script src="./js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body class="bo2" >
+
+<div>
+<h1 class="text-white" style="font-family:horrorText; font-size:8vh;" id="titletext"> <strong>Haunted House </h1><br>
+</div>
+<div>
+
+<h5 class="text-white" >By Nandini Handa</h5>
+</div>
+
+
+<canvas id="canvas">
+
+
+
+</canvas>
+
+
+<div style="position: absolute; top: 0px; left: 0px; width: 100vw; height: 100vh; z-index: 5;" class="draggable" class="ui-widget-content">
+
+<div class="container h-100 w-100 d-flex justify-content-center align-items-center">
+
+
+
+<div class="d-flex flex-column justify-content-center align-items-center"  >
+
+
+
+<h5 class="text-white" id="ques" >here  goes  the question  to the  answer to which is  load </h5><br>
+
+
+<ans-button  style="--slist: #ffda5f, #f9376b"  class="text-center" id="opt1" onclick="revealResult(1)"><strong>Option1</strong></ans-button>
+
+<ans-button  style="--slist: #ffda5f, #f9376b"  class="text-center" id="opt2"  onclick="revealResult(2)"><strong>Option2</strong></ans-button>
+
+<ans-button   style="--slist: #ffda5f, #f9376b"  class="text-center"  id="opt3"  onclick="revealResult(3)"><strong>Option3</strong></ans-button>
+
+<ans-button   style="--slist: #ffda5f, #f9376b"  class="text-center"  id="opt4"  onclick="revealResult(4)"><strong>Option4</strong></ans-button>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+</body>
+
+<script src="./js/main.js"></script>
+
+<script>
+
+count=0;
+
+var ques=document.getElementById("ques");
+var opt1=document.getElementById("opt1");
+var opt2=document.getElementById("opt2");
+var opt3=document.getElementById("opt3");
+var opt4=document.getElementById("opt4");
+
+
+var question=[
+"You have Reached the Door, try doing something",
+"Watch out for the  bats flying out",
+"there is a staircase in front",
+"watch out there  is a werewolf in front , hurry up do something",
+"there is  Mr.Headless murphy ",
+"there is an  egyptian mummy , do something  hurry up ",
+"it is  the dracula in front ",
+"frankstien in  front"
+
+];
+
+var ans=[
+
+[ "knock the door","pull the  long door bell rope","shout loudly","climbup the pipe","knock the door"],
+[ "duck and save your head","fight bats with a stick ","call batman ","make loud cry","duck and save your head"],
+[ "climb up the stairs","get out of the place","do nothing just wait here","call Mr. Adams Name Loudly","climb up the stairs"],
+[ "fight and  kill werewolf ","grab a stick and  teach him a trick 'go puppy go n fetch'","Sing Scooby Doo","do nothing","grab a stick and  teach him a trick 'go puppy go n fetch'"],
+[ "run again","tell him a html joke without head tag","help him find his  head."," why i am here ?","tell him a html joke without head tag"],
+[ "I am dead now"," show some cool egyptian dance moves ","run for life","Find A cat","run for life"],
+[ "fight him "," run and save life","give him garlic sause.","i am fan of twilight","give him garlic sause."],
+[ "ask a what is 2+2?","run for life","ask hm if albert is his  elder brother ?"," do nothing","run for life"],
+
+
+]
+
+
+
+ques.innerHTML=question[count];
+opt1.innerHTML=ans[count][0];
+opt2.innerHTML=ans[count][1];
+opt3.innerHTML=ans[count][2];
+opt4.innerHTML=ans[count][3];
+
+
+opt1.style.background = 'orange';
+opt2.style.background = 'orange';
+opt3.style.background = 'orange';
+opt4.style.background = 'orange';
+
+
+function revealResult(x){
+
+var correct = ans[count][4];
+
+if(correct==ans[count][0]){
+opt1.style.background="lightgreen";
+
+opt2.style.background = 'orange';
+opt3.style.background = 'orange';
+opt4.style.background = 'orange';
+
+
+}
+else if(correct==ans[count][1]){
+
+opt2.style.background="lightgreen";
+opt1.style.background = 'orange';
+
+opt3.style.background = 'orange';
+opt4.style.background = 'orange';
+}
+else if(correct==ans[count][2]){
+opt3.style.background="lightgreen";
+opt1.style.background = 'orange';
+opt2.style.background = 'orange';
+
+opt4.style.background = 'orange';
+}
+else if(correct==ans[count][3]){
+
+opt4.style.background="lightgreen";
+opt1.style.background = 'orange';
+opt2.style.background = 'orange';
+opt3.style.background = 'orange';
+
+}
+
+
+
+setTimeout(function(){ 
+
+count++;
+if(count>=8)
+{
+count=7;
+
+setTimeout(function(){ alert("finnally Mr. Adam is  here , and  he gave  you treats and safely left you out of  the  house. and told you to never disturb him again.  Game Over");},1000);
+
+
+
+
+
+
+
+
+
+}
+ques.innerHTML=question[count];
+opt1.innerHTML=ans[count][0];
+opt2.innerHTML=ans[count][1];
+opt3.innerHTML=ans[count][2];
+opt4.innerHTML=ans[count][3];
+
+
+
+opt1.style.background = 'orange';
+opt2.style.background = 'orange';
+opt3.style.background = 'orange';
+opt4.style.background = 'orange';
+
+}, 1000);
+
+
+
+
+
+
+
+
+}
+
+
+
+</script>
+
+
+</html>

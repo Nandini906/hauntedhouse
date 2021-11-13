@@ -1,0 +1,104 @@
+
+
+.bo{
+
+
+
+background-image:url("../img/bg2.jpg");	
+	background-size:cover;
+	
+}
+
+.bo2{
+
+
+
+background-image:url("../img/bg_game.jpg");	
+	background-size:cover;
+	
+}
+
+html, body {
+  height: 100%;
+
+}
+
+boo-button {
+
+  width:100%;
+  height:20px;
+  border: solid .25em transparent;
+  padding: 1em;
+  border-radius: 9em;
+  background: 
+    linear-gradient(to right bottom, var(--slist)) 
+      border-box;
+  font: 2vh, sans-serif;
+  text-transform: uppercase;
+    cursor: pointer;
+	
+  
+ 
+ 
+}
+boo-button::after { content: attr(data-ico) }
+
+@font-face {
+  font-family: horrorText;
+  src: url("../font/horror.ttf");
+}
+
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateX(200%);
+  }
+  
+  25%{
+	   transform: translateX(100%);
+  }
+  
+  
+  50%{
+	  
+	   transform: translateX(70%);
+  }
+  
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.moon{
+	height:100px;
+	width:100px;
+	animation: 1s ease-in 1s 1 slideInFromBottom;
+	float:right;
+	animation-fill-mode: forwards;
+}
+
+
+#canvas{
+    opacity:0.3;
+}
+
+
+
+ans-button {
+
+  width:80vw;
+  height:20px;
+  border: solid .25em transparent;
+  padding: 2em;
+  border-radius: 9em;
+  background: 
+    linear-gradient(to right bottom, var(--slist)) 
+      border-box;
+  font: 2vh, sans-serif;
+  text-transform: uppercase;
+    cursor: pointer;
+	margin:8px;
+  
+ 
+ 
+}
