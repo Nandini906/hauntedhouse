@@ -3,8 +3,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <script src="./js/bootstrap.min.js"></script>
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
 
 </head>
 <body class="bo2" >
@@ -38,13 +37,13 @@
 <h5 class="text-white" id="ques" >here  goes  the question  to the  answer to which is  load </h5><br>
 
 
-<ans-button  style="--slist: #ffda5f, #f9376b"  class="text-center" id="opt1" onclick="revealResult(1)"><strong>Option1</strong></ans-button>
+<ans-button  style="--slist: #ffda5f, #f9376b"  class="text-center" id="opt1" onclick="revealResult(0)"><strong>Option1</strong></ans-button>
 
-<ans-button  style="--slist: #ffda5f, #f9376b"  class="text-center" id="opt2"  onclick="revealResult(2)"><strong>Option2</strong></ans-button>
+<ans-button  style="--slist: #ffda5f, #f9376b"  class="text-center" id="opt2"  onclick="revealResult(1)"><strong>Option2</strong></ans-button>
 
-<ans-button   style="--slist: #ffda5f, #f9376b"  class="text-center"  id="opt3"  onclick="revealResult(3)"><strong>Option3</strong></ans-button>
+<ans-button   style="--slist: #ffda5f, #f9376b"  class="text-center"  id="opt3"  onclick="revealResult(2)"><strong>Option3</strong></ans-button>
 
-<ans-button   style="--slist: #ffda5f, #f9376b"  class="text-center"  id="opt4"  onclick="revealResult(4)"><strong>Option4</strong></ans-button>
+<ans-button   style="--slist: #ffda5f, #f9376b"  class="text-center"  id="opt4"  onclick="revealResult(3)"><strong>Option4</strong></ans-button>
 
 
 </div>
@@ -60,7 +59,7 @@
 
 </body>
 
-<script src="./js/main.js"></script>
+
 
 <script>
 
@@ -116,9 +115,12 @@ opt4.style.background = 'orange';
 
 function revealResult(x){
 
+var msg="You Got Killed";
 var correct = ans[count][4];
 
-if(correct==ans[count][0]){
+
+if(correct==ans[count][x] && x==0){
+
 opt1.style.background="lightgreen";
 
 opt2.style.background = 'orange';
@@ -126,30 +128,64 @@ opt3.style.background = 'orange';
 opt4.style.background = 'orange';
 
 
+msg="You Survived, Now Moving to Next ";
+
+
+
+
 }
-else if(correct==ans[count][1]){
+else if(correct==ans[count][1] && x==1){
 
 opt2.style.background="lightgreen";
 opt1.style.background = 'orange';
 
 opt3.style.background = 'orange';
 opt4.style.background = 'orange';
+msg="You Survived, Now Moving to Next ";
 }
-else if(correct==ans[count][2]){
+else if(correct==ans[count][2] && x==2){
 opt3.style.background="lightgreen";
 opt1.style.background = 'orange';
 opt2.style.background = 'orange';
 
 opt4.style.background = 'orange';
+msg="You Survived, Now Moving to Next ";
 }
-else if(correct==ans[count][3]){
+else if(correct==ans[count][3] && x==3){
 
 opt4.style.background="lightgreen";
 opt1.style.background = 'orange';
 opt2.style.background = 'orange';
 opt3.style.background = 'orange';
+msg="You Survived, Now Moving to Next ";
+
+}else{
+
+
+opt2.innerHTML="<p> Killed!! click  to <a href='index.html'> restart</a> </p>";
+opt1.style.display="none";
+opt3.style.display="none";
+opt4.style.display="none";
+
 
 }
+
+var audio = new Audio('./sound/laughhowl.mp3');
+audio.play();
+
+
+if(msg=="You Got Killed")
+{
+  
+
+
+window.stop();
+
+
+return 0;
+
+}
+
 
 
 
@@ -163,13 +199,6 @@ count=7;
 setTimeout(function(){ alert("finnally Mr. Adam is  here , and  he gave  you treats and safely left you out of  the  house. and told you to never disturb him again.  Game Over");},1000);
 
 
-
-
-
-
-
-
-
 }
 ques.innerHTML=question[count];
 opt1.innerHTML=ans[count][0];
@@ -177,12 +206,17 @@ opt2.innerHTML=ans[count][1];
 opt3.innerHTML=ans[count][2];
 opt4.innerHTML=ans[count][3];
 
+opt1.style.display="block";
+opt2.style.display="block";
+opt3.style.display="block";
+opt4.style.display="block";
 
 
 opt1.style.background = 'orange';
 opt2.style.background = 'orange';
 opt3.style.background = 'orange';
 opt4.style.background = 'orange';
+
 
 }, 1000);
 
